@@ -80,9 +80,9 @@ curl -X GET "http://sandbox.arabamd.com/api/v1/detail?id=15207658" -H "accept: t
 * You should use Vue
 * SPA is plus
 * You can use Vuex
-* You can use any CSS framework (bootstrap, bulma etc.)
+* You can use any CSS framework (Bootstrap, Bulma, etc.); however, we also expect to see some custom CSS written by you in the project.
 * It should be responsive
-
+*  You may use AI tools to assist you during development; however, please do not rely on AI to generate code that you do not fully understand or cannot write yourself.
 <br/>
 <br/>
 
