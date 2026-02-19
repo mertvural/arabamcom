@@ -1,16 +1,16 @@
 import { Sort, sortDirection, Take } from "../enums.ts/listingEnums";
 
- interface ListingLocation {
+interface ListingLocation {
   cityName: string;
   townName: string;
 }
 
- interface ListingCategory {
+interface ListingCategory {
   id: number;
   name: string;
 }
 
- interface ListingProperty {
+interface ListingProperty {
   name: string;
   value: string;
 }

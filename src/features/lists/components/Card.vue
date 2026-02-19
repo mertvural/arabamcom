@@ -4,11 +4,12 @@ import type { ListingResponse } from "../types/listingTypes";
 const props = defineProps<{
   item: ListingResponse;
 }>();
-
 </script>
 
 <template>
-  <article class="bg-linear-to-b from-gray-50 to-gray-100 shadow-md border border-gray-200 rounded-lg overflow-hidden hover:shadow-2xl hover:cursor-pointer">
+  <article
+    class="bg-linear-to-b from-gray-50 to-gray-100 shadow-md border border-gray-200 rounded-lg overflow-hidden hover:shadow-2xl hover:cursor-pointer"
+  >
     <div class="h-36 w-full">
       <img
         class="rounded-base size-full object-cover"
@@ -19,7 +20,6 @@ const props = defineProps<{
 
     <div class="p-4 h-36 flex flex-col">
       <div class="flex-1">
-
         <h2 class="flex justify-between mb-2">
           <span class="font-bold">
             {{ item.location.cityName }}

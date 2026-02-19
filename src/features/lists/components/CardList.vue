@@ -9,7 +9,9 @@ const listingStore = useListingStore();
 </script>
 
 <template>
-  <h1 class="text-2xl font-bold my-3 text-center text-secondary">- SHOWCASE -</h1>
+  <h1 class="text-2xl font-bold my-3 text-center text-secondary">
+    - SHOWCASE -
+  </h1>
 
   <div class="flex justify-end gap-5 mb-3">
     <Filters />

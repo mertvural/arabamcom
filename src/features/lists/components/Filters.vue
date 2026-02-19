@@ -6,8 +6,8 @@ import Popover from "primevue/popover";
 const filtersPopover = ref(null);
 
 const handleToggleFilters = (event) => {
-    filtersPopover.value.toggle(event);
-}
+  filtersPopover.value.toggle(event);
+};
 </script>
 
 <template>
