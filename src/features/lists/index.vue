@@ -3,12 +3,11 @@ import { onBeforeMount } from 'vue';
 import { useListingStore } from './stores/listingStore';
 import CardList from './components/CardList.vue';
 
-
-
 const listingStore = useListingStore();
 
-onBeforeMount(() => {
-  listingStore.fetchList();
+
+onBeforeMount(async () => {
+ await listingStore.fetchList();
 });
 
 

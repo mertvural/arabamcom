@@ -1,31 +1,50 @@
 <script setup lang="ts">
-import type { ListingResponse } from '../types/listingTypes';
+import type { ListingResponse } from "../types/listingTypes";
 
 const props = defineProps<{
   item: ListingResponse;
 }>();
 
 console.log(props.item);
-
 </script>
 
 <template>
+  <article class="bg-linear-to-b from-gray-50 to-gray-100 shadow-md border border-gray-200 rounded-lg overflow-hidden hover:shadow-2xl hover:cursor-pointer">
+    <div class="h-52 w-full">
+      <img
+        class="rounded-base size-full object-cover"
+        :src="item.photo.replace('{0}', '240x180')"
+        :alt="item.title"
+      />
+    </div>
 
-  <article
-    class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs"
-  >
-    <a href="#">
-        <img class="rounded-base" :src="item.photo" :alt="item.title" />
-    </a>
-    <a href="#">
-        <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">{{ item.title }}</h5>
-    </a>
-    <p class="mb-6 text-body">{{ item.modelName }} - {{ item.priceFormatted }}</p>
-    <a href="#" class="inline-flex items-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
-        Read more
-    </a>
-</article>
+    <div class="p-4 h-36 flex flex-col">
+      <div class="flex-1">
 
+        <h2 class="flex justify-between mb-2">
+          <span class="font-bold">
+            {{ item.location.cityName }}
+          </span>
+          <span class="font-medium">
+            {{
+              item.properties.find((property) => property.name === "year")
+                ?.value
+            }}
+          </span>
+        </h2>
+
+        <p>
+          {{ item.title }}
+        </p>
+      </div>
+
+      <p class="text-right">
+        <span class="text-secondary font-bold whitespace-nowrap">{{
+          item.priceFormatted
+        }}</span>
+      </p>
+    </div>
+  </article>
 </template>
 
 <style scoped></style>
