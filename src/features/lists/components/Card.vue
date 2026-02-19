@@ -5,12 +5,11 @@ const props = defineProps<{
   item: ListingResponse;
 }>();
 
-console.log(props.item);
 </script>
 
 <template>
   <article class="bg-linear-to-b from-gray-50 to-gray-100 shadow-md border border-gray-200 rounded-lg overflow-hidden hover:shadow-2xl hover:cursor-pointer">
-    <div class="h-52 w-full">
+    <div class="h-36 w-full">
       <img
         class="rounded-base size-full object-cover"
         :src="item.photo.replace('{0}', '240x180')"

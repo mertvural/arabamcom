@@ -1,14 +1,13 @@
-import { defineStore } from 'pinia';
-import { getListing } from '../api/listingApi';
-import { Sort, SortDirection, Take } from '../enums.ts/listingEnums';
-import { Language } from '@/languages/en';
-import type { ListingStoreState } from '../types/listingTypes';
+import { defineStore } from "pinia";
+import { getListing } from "../api/listingApi";
+import { Language } from "@/languages/en";
+import type { ListingStoreState, SortParams } from "../types/listingTypes";
 
-export const useListingStore = defineStore('listing', {
-    state: (): ListingStoreState => ({
-    lists: null, 
+export const useListingStore = defineStore("listing", {
+  state: (): ListingStoreState => ({
+    lists: null,
     loading: false,
-    error: null
+    error: null,
   }),
 
   getters: {
@@ -16,23 +15,19 @@ export const useListingStore = defineStore('listing', {
   },
 
   actions: {
-    async fetchList(params?: {
-      sort?: Sort;
-      sortDirection?: SortDirection;
-      take?: Take;
-    }) {
+    async fetchList(params: SortParams) {
       this.loading = true;
       this.error = null;
 
       try {
         const response = await getListing({
-          sort: params?.sort ?? Sort.Date,
-          sortDirection: params?.sortDirection ?? SortDirection.Desc,
-          take: params?.take ?? Take.Ten,
+          sort: params?.sort,
+          sortDirection: params?.sortDirection,
+          take: params?.take,
         });
 
         if (response.data) {
-         this.lists = response.data;
+          this.lists = response.data;
         }
       } catch (e) {
         this.error = e instanceof Error ? e.message : Language.LIST_LOAD_FAILED;

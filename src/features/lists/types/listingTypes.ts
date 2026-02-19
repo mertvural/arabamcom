@@ -1,3 +1,5 @@
+import { Sort, sortDirection, Take } from "../enums.ts/listingEnums";
+
  interface ListingLocation {
   cityName: string;
   townName: string;
@@ -31,4 +33,10 @@ export interface ListingStoreState {
   lists: ListingResponse[] | null;
   loading: boolean;
   error: string | null;
+}
+
+export interface SortParams {
+  sort?: Sort;
+  sortDirection?: sortDirection;
+  take?: Take;
 }
