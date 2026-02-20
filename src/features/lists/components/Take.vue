@@ -1,30 +1,27 @@
-<script setup lang="ts"> 
-import { ref, watch } from "vue";
+<script setup lang="ts">
+import { watch } from "vue";
 import Select from "primevue/select";
-import { Sort, sortDirection, Take, TakeOptions } from "../enums.ts/listingEnums";
+import { TakeOptions } from "../enums.ts/listingEnums";
 import { useListingStore } from "../stores/listingStore";
+import { storeToRefs } from "pinia";
 
-const listingStore = useListingStore();
-const selectedTake = ref<number | null>(null);
+const { params } = storeToRefs(useListingStore());
 
-
-watch(selectedTake, async (take) => {
-  await listingStore.fetchList({
-    sort: Sort.Price,
-    sortDirection: sortDirection.Desc,
-    take: selectedTake.value,
-  });
-});
+watch(
+  () => params.value.take,
+  async () => {
+    await useListingStore().fetchList(params.value);
+  },
+);
 </script>
 
 <template>
-    <Select
-      v-model="selectedTake"
-      :options="TakeOptions"
-      optionLabel="name"
-      optionValue="value"
-      placeholder="İlan sayısını seçiniz"
-      class="w-full md:w-56"
-      size="small"
-    />
+  <Select
+    v-model="params.take"
+    :options="TakeOptions"
+    optionLabel="name"
+    optionValue="value"
+    class="w-full md:w-56"
+    size="small"
+  />
 </template>

@@ -4,6 +4,17 @@ export const TakeOptions = [
   { name: "50", value: 50 },
 ];
 
+export const SortOptions = [
+  { name: "Fiyata göre sırala", value: 0 },
+  { name: "Tarih", value: 1 },
+  { name: "Yıl", value: 2 },
+];
+
+export const SortDirectionOptions = [
+  { name: "Artan", value: 0 },
+  { name: "Azalan", value: 1 },
+];
+
 export enum Take {
   Ten = 10,
   Twenty = 20,

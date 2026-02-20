@@ -2,11 +2,22 @@
 import { ref } from "vue";
 import Button from "primevue/button";
 import Popover from "primevue/popover";
+import InputText from "primevue/inputtext";
+import Select from "primevue/select";
+import { storeToRefs } from "pinia";
+import { useListingStore } from "../stores/listingStore";
+import { SortDirectionOptions, SortOptions } from "../enums.ts/listingEnums";
 
+const listingStore = useListingStore();
+const { params } = storeToRefs(listingStore);
 const filtersPopover = ref(null);
 
 const handleToggleFilters = (event) => {
   filtersPopover.value.toggle(event);
+};
+
+const handleApplyFilters = async () => {
+  await listingStore.fetchList(params.value);
 };
 </script>
 
@@ -20,7 +31,55 @@ const handleToggleFilters = (event) => {
     />
 
     <Popover ref="filtersPopover">
-      <div class="flex flex-col gap-4 w-[25rem]">filtreleer</div>
+      <div class="mb-2">
+        <div class="flex gap-2 mb-2">
+          <InputText
+            type="text"
+            v-model="params.minYear"
+            placeholder="Min Year"
+            size="small"
+            class="w-full"
+            maxlength="4"
+            inputmode="numeric"
+          />
+          <InputText
+            type="text"
+            v-model="params.maxYear"
+            placeholder="Max Year"
+            class="w-full"
+            size="small"
+            maxlength="4"
+            inputmode="numeric"
+          />
+        </div>
+
+        <div class="flex gap-2 mb-2">
+          <Select
+            v-model="params.sort"
+            :options="SortOptions"
+            optionLabel="name"
+            optionValue="value"
+            class="w-full"
+            size="small"
+          />
+
+          <Select
+            v-model="params.sortDirection"
+            :options="SortDirectionOptions"
+            optionLabel="name"
+            optionValue="value"
+            class="w-full"
+            size="small"
+          />
+        </div>
+      </div>
+
+      <Button
+        label="Apply"
+        severity="danger"
+        size="small"
+        @click="handleApplyFilters"
+      />
     </Popover>
   </div>
 </template>

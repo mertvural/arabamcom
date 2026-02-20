@@ -33,10 +33,13 @@ export interface ListingStoreState {
   lists: ListingResponse[] | null;
   loading: boolean;
   error: string | null;
+  params: SortParams;
 }
 
 export interface SortParams {
   sort?: Sort;
   sortDirection?: sortDirection;
   take?: Take;
+  minYear?: number;
+  maxYear?: number;
 }
