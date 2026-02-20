@@ -1,9 +1,14 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import type { ListingResponse } from "../types/listingTypes";
 
-defineProps<{
+const props = defineProps<{
   item: ListingResponse;
 }>();
+
+const formattedPrice = computed(() => {
+  return new Intl.NumberFormat("tr-TR").format(props.item.price) + " TL";
+});
 </script>
 
 <template>
@@ -38,9 +43,9 @@ defineProps<{
       </div>
 
       <p class="text-right">
-        <span class="text-secondary font-bold whitespace-nowrap">{{
-          item.priceFormatted
-        }}</span>
+        <span class="text-secondary font-bold whitespace-nowrap">
+          {{ formattedPrice }}
+        </span>
       </p>
     </div>
   </article>
