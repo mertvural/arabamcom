@@ -5,7 +5,7 @@ import Popover from "primevue/popover";
 import InputText from "primevue/inputtext";
 import Select from "primevue/select";
 import { storeToRefs } from "pinia";
-import { useListingStore } from "../stores/listingStore";
+import { useListingStore } from "../stores/listing";
 import { SortDirectionOptions, SortOptions } from "../enums.ts/listingEnums";
 
 const listingStore = useListingStore();

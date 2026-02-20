@@ -1,5 +1,5 @@
 import { http } from "@/services/api/http";
-import { ListingResponse } from "../types/listingTypes";
+import { ListingResponse } from "../types/listing";
 
 export const getListing = (params: {
   sort: number;

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useRouter } from "vue-router";
-import type { ListingResponse } from "../types/listingTypes";
+import type { ListingResponse } from "../types/listing";
 
 const props = defineProps<{
   item: ListingResponse;

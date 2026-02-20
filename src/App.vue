@@ -5,7 +5,7 @@ import { useToast } from "primevue/usetoast";
 import { RouterView } from "vue-router";
 import Loading from "./components/Loading.vue";
 import Toast from "primevue/toast";
-import { useListingStore } from "@/features/lists/stores/listingStore";
+import { useListingStore } from "@/features/lists/stores/listing";
 import { Language } from "./languages/en";
 
 const listingStore = useListingStore();

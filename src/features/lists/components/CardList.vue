@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useListingStore } from "../stores/listingStore";
+import { useListingStore } from "../stores/listing";
 import Card from "./Card.vue";
 import Take from "./Take.vue";
 import Filters from "./Filters.vue";

@@ -2,7 +2,7 @@
 import { watch } from "vue";
 import Select from "primevue/select";
 import { TakeOptions } from "../enums.ts/listingEnums";
-import { useListingStore } from "../stores/listingStore";
+import { useListingStore } from "../stores/listing";
 import { storeToRefs } from "pinia";
 
 const { params } = storeToRefs(useListingStore());

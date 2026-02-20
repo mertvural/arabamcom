@@ -8,4 +8,5 @@ export enum Language {
   NUMBER_OF_LISTINGS = "List size",
   NO_RESULTS_FOUND = "No results found",
   ERROR = "Error",
+  BACK = "Back",
 }

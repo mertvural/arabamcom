@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
-import { getListing } from "../api/listingApi";
+import { getListing } from "../api/listing";
 import { Language } from "@/languages/en";
-import type { ListingStoreState, SortParams } from "../types/listingTypes";
+import type { ListingStoreState, SortParams } from "../types/listing";
 import { Sort, sortDirection, Take } from "../enums.ts/listingEnums";
 
 export const useListingStore = defineStore("listing", {
