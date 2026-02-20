@@ -2,7 +2,7 @@
 import { watch } from "vue";
 import { storeToRefs } from "pinia";
 import { useToast } from "primevue/usetoast";
-import Lists from "@/features/lists/index.vue";
+import { RouterView } from "vue-router";
 import Loading from "./components/Loading.vue";
 import Toast from "primevue/toast";
 import { useListingStore } from "@/features/lists/stores/listingStore";
@@ -27,7 +27,7 @@ watch(error, (value) => {
 
 <template>
   <div class="container mx-auto text-primary text-sm font-[Open_Sans]">
-    <Lists />
+    <RouterView />
   </div>
 
   <Loading v-if="loading" />
