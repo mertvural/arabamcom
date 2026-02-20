@@ -19,9 +19,9 @@ watch(
   <Select
     v-model="params.take"
     :options="TakeOptions"
-    optionLabel="name"
-    optionValue="value"
-    class="w-full md:w-56"
+    option-label="name"
+    option-value="value"
+    class="w-full md:w-24"
     size="small"
   />
 </template>

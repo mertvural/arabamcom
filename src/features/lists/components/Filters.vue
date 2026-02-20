@@ -34,8 +34,8 @@ const handleApplyFilters = async () => {
       <div class="mb-2">
         <div class="flex gap-2 mb-2">
           <InputText
-            type="text"
             v-model="params.minYear"
+            type="text"
             placeholder="Min Year"
             size="small"
             class="w-full"
@@ -43,8 +43,8 @@ const handleApplyFilters = async () => {
             inputmode="numeric"
           />
           <InputText
-            type="text"
             v-model="params.maxYear"
+            type="text"
             placeholder="Max Year"
             class="w-full"
             size="small"

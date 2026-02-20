@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { ListingResponse } from "../types/listingTypes";
 
-const props = defineProps<{
+defineProps<{
   item: ListingResponse;
 }>();
 </script>
