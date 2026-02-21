@@ -21,6 +21,24 @@ const formattedPrice = computed(() => {
   return new Intl.NumberFormat("tr-TR").format(lists?.value?.price) + " TL";
 });
 
+const propertyIconMap: Record<string, string> = {
+  km: "pi-gauge",
+  kilometre: "pi-gauge",
+  color: "pi-palette",
+  renk: "pi-palette",
+  year: "pi-calendar",
+  yıl: "pi-calendar",
+  gear: "pi-cog",
+  vites: "pi-cog",
+  fuel: "pi-bolt",
+  yakıt: "pi-bolt",
+};
+
+function getPropertyIcon(name: string): string {
+  const key = name?.toLowerCase().trim();
+  return key ? (propertyIconMap[key] ?? "") : "";
+}
+
 onBeforeMount(async () => {
   await detailStore.fetchDetail({
     id: Number(route.params.id),
@@ -29,7 +47,7 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-  <div class="pt-5 pb-32">
+  <div class="pt-5">
     <button
       type="button"
       class="mb-4 text-secondary font-medium flex items-center gap-2 cursor-pointer"
@@ -38,8 +56,8 @@ onBeforeMount(async () => {
       <i class="pi pi-arrow-left"></i> {{ Language.BACK }}
     </button>
 
-    <div class="flex gap-5 justify-between">
-      <div class="w-2/3 bg-white p-5 rounded-lg shadow-sm">
+    <div class="flex flex-col md:flex-row gap-5 justify-between">
+      <div class="w-full md:w-2/3 bg-white p-5 rounded-lg shadow-sm">
         <h1 class="text-xl md:text-2xl font-bold mb-5 leading-tight">
           {{ lists?.title }}
         </h1>
@@ -81,7 +99,7 @@ onBeforeMount(async () => {
         </Galleria>
       </div>
 
-      <div class="w-1/3">
+      <div class="w-full md:w-1/3">
         <ul class="bg-white p-5 rounded-lg shadow-sm mb-5">
           <li
             class="flex justify-between items-center shadow-sm bg-gray-100 p-2 rounded-md font-bold"
@@ -92,25 +110,28 @@ onBeforeMount(async () => {
           <li
             class="flex justify-between items-center border-b-gray-200 border-b p-2"
           >
-            <span>{{ Language.LISTING_NO }}</span>
-            <span class="font-semibold">
-              <i class="pi pi-hashtag"></i>
-              {{ lists?.id }}
+            <span class="flex items-center gap-2">
+              <i class="pi pi-hashtag text-secondary" />
+              {{ Language.LISTING_NO }}
             </span>
+            <span class="font-semibold">{{ lists?.id }}</span>
           </li>
           <li
             class="flex justify-between items-center border-b-gray-200 border-b p-2"
           >
-            <span>{{ Language.DATE }}</span>
-            <span class="font-semibold">
-              <i class="pi pi-calendar"></i>
-              {{ lists?.dateFormatted }}</span
-            >
+            <span class="flex items-center gap-2">
+              <i class="pi pi-calendar text-secondary" />
+              {{ Language.DATE }}
+            </span>
+            <span class="font-semibold">{{ lists?.dateFormatted }}</span>
           </li>
           <li
             class="flex justify-between items-center border-b-gray-200 border-b p-2"
           >
-            <span>{{ Language.MODEL }}</span>
+            <span class="flex items-center gap-2">
+              <i class="pi pi-car text-secondary" />
+              {{ Language.MODEL }}
+            </span>
             <span class="font-semibold">{{ lists?.modelName }}</span>
           </li>
         </ul>
@@ -119,20 +140,27 @@ onBeforeMount(async () => {
           <li
             class="flex justify-between items-center border-b-gray-200 border-b p-2"
           >
-            <span>{{ Language.FULL_NAME }}</span>
+            <span class="flex items-center gap-2">
+              <i class="pi pi-user text-secondary" />
+              {{ Language.FULL_NAME }}
+            </span>
             <span class="font-semibold text-secondary">
-              <i class="pi pi-user"></i>
-              {{ lists?.userInfo.nameSurname }}</span
-            >
+              {{ lists?.userInfo.nameSurname }}
+            </span>
           </li>
           <li
             class="flex justify-between items-center border-b-gray-200 border-b p-2"
           >
-            <span>{{ Language.PHONE }}</span>
-            <span class="font-semibold text-secondary">
-              <i class="pi pi-phone"></i>
-              {{ lists?.userInfo.phoneFormatted }}</span
+            <span class="flex items-center gap-2">
+              <i class="pi pi-phone text-secondary" />
+              {{ Language.PHONE }}
+            </span>
+            <a
+              class="font-semibold text-secondary"
+              :href="`tel:${lists?.userInfo.phone}`"
             >
+              {{ lists?.userInfo.phoneFormatted }}
+            </a>
           </li>
         </ul>
 
@@ -142,7 +170,14 @@ onBeforeMount(async () => {
             :key="property.name"
             class="flex justify-between items-center border-b-gray-200 border-b p-2"
           >
-            <span>{{ property.name }}</span>
+            <span class="flex items-center gap-2">
+              <i
+                v-if="getPropertyIcon(property.name)"
+                :class="['pi', getPropertyIcon(property.name)]"
+                class="text-secondary"
+              />
+              {{ property.name }}
+            </span>
             <span class="font-semibold">{{ property.value }}</span>
           </li>
         </ul>

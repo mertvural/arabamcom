@@ -7,6 +7,7 @@ import Loading from "./components/Loading.vue";
 import Toast from "primevue/toast";
 import { useListingStore } from "@/features/lists/stores/listing";
 import { Language } from "./languages/en";
+import Footer from "./components/Footer.vue";
 
 const listingStore = useListingStore();
 const { loading, error } = storeToRefs(listingStore);
@@ -26,8 +27,9 @@ watch(error, (value) => {
 </script>
 
 <template>
-  <div class="max-w-7xl mx-auto text-primary text-sm font-[Open_Sans]">
+  <div class="max-w-7xl mx-auto text-primary text-sm font-[Open_Sans] px-2">
     <RouterView />
+    <Footer />
   </div>
 
   <Loading v-if="loading" />
