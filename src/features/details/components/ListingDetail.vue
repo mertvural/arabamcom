@@ -86,13 +86,13 @@ onBeforeMount(async () => {
           <li
             class="flex justify-between items-center shadow-sm bg-gray-100 p-2 rounded-md font-bold"
           >
-            <span class="text-lg">Fiyat</span>
+            <span class="text-lg">{{ Language.PRICE }}</span>
             <span class="text-secondary text-xl">{{ formattedPrice }}</span>
           </li>
           <li
             class="flex justify-between items-center border-b-gray-200 border-b p-2"
           >
-            <span>İlan No</span>
+            <span>{{ Language.LISTING_NO }}</span>
             <span class="font-semibold">
               <i class="pi pi-hashtag"></i>
               {{ lists?.id }}
@@ -101,7 +101,7 @@ onBeforeMount(async () => {
           <li
             class="flex justify-between items-center border-b-gray-200 border-b p-2"
           >
-            <span>Tarih</span>
+            <span>{{ Language.DATE }}</span>
             <span class="font-semibold">
               <i class="pi pi-calendar"></i>
               {{ lists?.dateFormatted }}</span
@@ -110,7 +110,7 @@ onBeforeMount(async () => {
           <li
             class="flex justify-between items-center border-b-gray-200 border-b p-2"
           >
-            <span>Model</span>
+            <span>{{ Language.MODEL }}</span>
             <span class="font-semibold">{{ lists?.modelName }}</span>
           </li>
         </ul>
@@ -119,7 +119,7 @@ onBeforeMount(async () => {
           <li
             class="flex justify-between items-center border-b-gray-200 border-b p-2"
           >
-            <span>Ad Soyad</span>
+            <span>{{ Language.FULL_NAME }}</span>
             <span class="font-semibold text-secondary">
               <i class="pi pi-user"></i>
               {{ lists?.userInfo.nameSurname }}</span
@@ -128,7 +128,7 @@ onBeforeMount(async () => {
           <li
             class="flex justify-between items-center border-b-gray-200 border-b p-2"
           >
-            <span>Telefon</span>
+            <span>{{ Language.PHONE }}</span>
             <span class="font-semibold text-secondary">
               <i class="pi pi-phone"></i>
               {{ lists?.userInfo.phoneFormatted }}</span

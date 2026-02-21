@@ -1,3 +1,5 @@
+import { Language } from "@/languages/en";
+
 export const TakeOptions = [
   { name: "10", value: 10 },
   { name: "20", value: 20 },
@@ -5,14 +7,14 @@ export const TakeOptions = [
 ];
 
 export const SortOptions = [
-  { name: "Fiyata göre sırala", value: 0 },
-  { name: "Tarih", value: 1 },
-  { name: "Yıl", value: 2 },
+  { name: Language.SORT_BY_PRICE, value: 0 },
+  { name: Language.SORT_BY_DATE, value: 1 },
+  { name: Language.YEAR, value: 2 },
 ];
 
 export const SortDirectionOptions = [
-  { name: "Artan", value: 0 },
-  { name: "Azalan", value: 1 },
+  { name: Language.ASCENDING, value: 0 },
+  { name: Language.DESCENDING, value: 1 },
 ];
 
 export enum Take {
