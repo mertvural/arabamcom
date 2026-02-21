@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onBeforeMount } from "vue";
 import { useListingStore } from "./stores/listing";
-import CardList from "./components/CardList.vue";
+import List from "./components/CardList.vue";
 
 const listingStore = useListingStore();
 
@@ -12,6 +12,6 @@ onBeforeMount(async () => {
 });
 </script>
 <template>
-  <CardList />
+  <List />
 </template>
 <style scoped></style>

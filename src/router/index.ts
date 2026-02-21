@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Lists from "@/features/lists/index.vue";
-import ListingDetail from "@/features/details/components/ListingDetail.vue";
+import Details from "@/features/details/index.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -13,7 +13,7 @@ const router = createRouter({
     {
       path: "/listing/:id",
       name: "listing-detail",
-      component: ListingDetail,
+      component: Details,
       props: true,
     },
   ],
