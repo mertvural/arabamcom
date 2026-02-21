@@ -6,7 +6,7 @@ import InputText from "primevue/inputtext";
 import Select from "primevue/select";
 import { storeToRefs } from "pinia";
 import { useListingStore } from "../stores/listing";
-import { SortDirectionOptions, SortOptions } from "../enums.ts/listingEnums";
+import { SortDirectionOptions, SortOptions } from "../enums.ts/listing";
 
 const listingStore = useListingStore();
 const { params } = storeToRefs(listingStore);

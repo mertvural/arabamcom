@@ -1,4 +1,4 @@
-import { Sort, sortDirection, Take } from "../enums.ts/listingEnums";
+import { Sort, sortDirection, Take } from "../enums.ts/listing";
 
 interface ListingLocation {
   cityName: string;

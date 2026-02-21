@@ -23,7 +23,7 @@ function handleClick() {
 
 <template>
   <article
-    class="bg-linear-to-b from-gray-50 to-gray-100 shadow-md border border-gray-200 rounded-lg overflow-hidden hover:shadow-2xl hover:cursor-pointer"
+    class="shadow-md rounded-lg overflow-hidden hover:shadow-2xl hover:cursor-pointer"
     role="button"
     tabindex="0"
     @click="handleClick"

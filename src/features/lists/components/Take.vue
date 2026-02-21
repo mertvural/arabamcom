@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { watch } from "vue";
 import Select from "primevue/select";
-import { TakeOptions } from "../enums.ts/listingEnums";
+import { TakeOptions } from "../enums.ts/listing";
 import { useListingStore } from "../stores/listing";
 import { storeToRefs } from "pinia";
 

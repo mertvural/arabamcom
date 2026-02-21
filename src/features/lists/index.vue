@@ -2,7 +2,7 @@
 import { onBeforeMount } from "vue";
 import { useListingStore } from "./stores/listing";
 import CardList from "./components/CardList.vue";
-import { Sort, sortDirection, Take } from "./enums.ts/listingEnums";
+import { Sort, sortDirection, Take } from "./enums.ts/listing";
 
 const listingStore = useListingStore();
 

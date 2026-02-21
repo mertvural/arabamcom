@@ -26,7 +26,7 @@ watch(error, (value) => {
 </script>
 
 <template>
-  <div class="container mx-auto text-primary text-sm font-[Open_Sans]">
+  <div class="max-w-7xl mx-auto text-primary text-sm font-[Open_Sans]">
     <RouterView />
   </div>
 
