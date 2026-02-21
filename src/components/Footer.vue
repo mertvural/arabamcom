@@ -9,7 +9,7 @@
     >
     . All rights reserved. |
     <a
-      href="https://github.com/mertvural"
+      href="https://github.com/mertvural/arabamcom/tree/development/frontend-assignment"
       target="_blank"
       class="text-secondary font-bold"
       >GitHub</a
