@@ -25,6 +25,10 @@ defineProps<{
           :src="slotProps.item.replace('{0}', '800x600')"
           :alt="detail?.title"
           class="max-w-full max-h-[70vh] object-contain rounded-lg mx-auto"
+          onerror="
+            this.onerror = null;
+            this.src = '/images/notloaded.png';
+          "
         />
       </div>
     </template>
@@ -34,6 +38,10 @@ defineProps<{
           :src="slotProps.item.replace('{0}', '240x180')"
           :alt="detail?.title"
           class="block object-cover rounded cursor-pointer mx-auto"
+          onerror="
+            this.onerror = null;
+            this.src = '/images/notloaded.png';
+          "
         />
       </div>
     </template>

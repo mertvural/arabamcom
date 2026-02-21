@@ -35,6 +35,10 @@ function handleClick() {
         class="rounded-base size-full object-cover"
         :src="item.photo.replace('{0}', '240x180')"
         :alt="item.title"
+        onerror="
+          this.onerror = null;
+          this.src = 'images/notloaded.png';
+        "
       />
     </div>
 
