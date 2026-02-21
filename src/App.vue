@@ -5,12 +5,12 @@ import { useToast } from "primevue/usetoast";
 import { RouterView } from "vue-router";
 import Loading from "./components/Loading.vue";
 import Toast from "primevue/toast";
-import { useListingStore } from "@/features/lists/stores/listing";
 import { Language } from "./languages/en";
 import Footer from "./components/Footer.vue";
+import { useGlobalStore } from "./store/global";
 
-const listingStore = useListingStore();
-const { loading, error } = storeToRefs(listingStore);
+const globalStore = useGlobalStore();
+const { loading, error } = storeToRefs(globalStore);
 
 const toast = useToast();
 
@@ -23,6 +23,8 @@ watch(error, (value) => {
     detail: value,
     life: 3000,
   });
+
+  setTimeout(() => globalStore.clearError(), 3000);
 });
 </script>
 

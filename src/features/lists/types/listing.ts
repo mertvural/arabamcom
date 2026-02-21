@@ -31,8 +31,6 @@ export interface ListingResponse {
 
 export interface ListingStoreState {
   lists: ListingResponse[] | null;
-  loading: boolean;
-  error: string | null;
   params: SortParams;
 }
 

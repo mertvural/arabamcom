@@ -1,14 +1,11 @@
 import { defineStore } from "pinia";
 import { getListing } from "../api/listing";
-import { Language } from "@/languages/en";
 import type { ListingStoreState, SortParams } from "../types/listing";
 import { Sort, sortDirection, Take } from "../enums.ts/listing";
 
 export const useListingStore = defineStore("listing", {
   state: (): ListingStoreState => ({
     lists: null,
-    loading: false,
-    error: null,
     params: {
       sort: Sort.Price,
       sortDirection: sortDirection.Desc,
@@ -20,9 +17,6 @@ export const useListingStore = defineStore("listing", {
 
   actions: {
     async fetchList(params: SortParams) {
-      this.loading = true;
-      this.error = null;
-
       try {
         const response = await getListing({
           sort: params?.sort,
@@ -36,10 +30,7 @@ export const useListingStore = defineStore("listing", {
           this.lists = response.data;
         }
       } catch (e) {
-        this.error = e instanceof Error ? e.message : Language.LIST_LOAD_FAILED;
-        throw e;
-      } finally {
-        this.loading = false;
+        console.error(e);
       }
     },
   },

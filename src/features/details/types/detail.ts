@@ -1,7 +1,5 @@
 export interface DetailStoreState {
   lists: DetailResponse | null;
-  loading: boolean;
-  error: string | null;
 }
 
 export interface DetailResponse {
