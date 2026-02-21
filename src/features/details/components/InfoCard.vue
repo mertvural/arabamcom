@@ -45,7 +45,7 @@ const formattedPrice = computed(() => {
         <i class="pi pi-car text-secondary" />
         {{ Language.MODEL }}
       </span>
-      <span class="font-semibold">{{ detail?.modelName }}</span>
+      <span class="font-semibold text-right">{{ detail?.modelName }}</span>
     </li>
   </ul>
 </template>
