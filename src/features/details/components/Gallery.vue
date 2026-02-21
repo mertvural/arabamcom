@@ -5,14 +5,14 @@ import { ResponsiveOptions } from "../enum/detail";
 import type { DetailResponse } from "../types/detail";
 
 defineProps<{
-  listing: DetailResponse | null;
+  detail: DetailResponse | null;
 }>();
 </script>
 
 <template>
   <Galleria
-    v-if="listing?.photos?.length"
-    :value="listing.photos"
+    v-if="detail?.photos?.length"
+    :value="detail.photos"
     :responsive-options="ResponsiveOptions"
     :num-visible="5"
   >
@@ -23,7 +23,7 @@ defineProps<{
         <Image
           preview
           :src="slotProps.item.replace('{0}', '800x600')"
-          :alt="listing?.title"
+          :alt="detail?.title"
           class="max-w-full max-h-[70vh] object-contain rounded-lg mx-auto"
         />
       </div>
@@ -32,7 +32,7 @@ defineProps<{
       <div class="flex justify-center">
         <img
           :src="slotProps.item.replace('{0}', '240x180')"
-          :alt="listing?.title"
+          :alt="detail?.title"
           class="block object-cover rounded cursor-pointer mx-auto"
         />
       </div>

@@ -3,7 +3,7 @@ import { Language } from "@/languages/en";
 import type { DetailResponse } from "../types/detail";
 
 defineProps<{
-  listing: DetailResponse | null;
+  detail: DetailResponse | null;
 }>();
 </script>
 
@@ -17,7 +17,7 @@ defineProps<{
         {{ Language.FULL_NAME }}
       </span>
       <span class="font-semibold text-secondary">
-        {{ listing?.userInfo.nameSurname }}
+        {{ detail?.userInfo.nameSurname }}
       </span>
     </li>
     <li
@@ -29,9 +29,9 @@ defineProps<{
       </span>
       <a
         class="font-semibold text-secondary"
-        :href="`tel:${listing?.userInfo.phone}`"
+        :href="`tel:${detail?.userInfo.phone}`"
       >
-        {{ listing?.userInfo.phoneFormatted }}
+        {{ detail?.userInfo.phoneFormatted }}
       </a>
     </li>
   </ul>

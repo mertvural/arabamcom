@@ -4,7 +4,7 @@ import { DetailStoreState } from "../types/detail";
 
 export const useDetailStore = defineStore("detail", {
   state: (): DetailStoreState => ({
-    lists: null,
+    detail: null,
   }),
 
   actions: {
@@ -15,7 +15,7 @@ export const useDetailStore = defineStore("detail", {
         });
 
         if (response.data) {
-          this.lists = response.data;
+          this.detail = response.data;
         }
       } catch (e) {
         console.error(e);

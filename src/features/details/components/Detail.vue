@@ -2,15 +2,15 @@
 import { storeToRefs } from "pinia";
 import { useDetailStore } from "../stores/detail";
 import BackButton from "./BackButton.vue";
-import ListingHeader from "./Header.vue";
-import ListingGallery from "./Gallery.vue";
-import ListingInfoCard from "./InfoCard.vue";
+import Header from "./Header.vue";
+import Gallery from "./Gallery.vue";
+import InfoCard from "./InfoCard.vue";
 import SellerInfoCard from "./SellerInfoCard.vue";
 import PropertiesList from "./PropertiesList.vue";
-import ListingDescription from "./Description.vue";
+import Description from "./Description.vue";
 
 const detailStore = useDetailStore();
-const { lists } = storeToRefs(detailStore);
+const { detail } = storeToRefs(detailStore);
 </script>
 
 <template>
@@ -19,18 +19,18 @@ const { lists } = storeToRefs(detailStore);
 
     <div class="flex flex-col md:flex-row gap-5 justify-between">
       <div class="w-full md:w-2/3 bg-white p-5 rounded-lg shadow-sm">
-        <ListingHeader :listing="lists" />
-        <ListingGallery :listing="lists" />
+        <Header :detail="detail" />
+        <Gallery :detail="detail" />
       </div>
 
       <div class="w-full md:w-1/3">
-        <ListingInfoCard :listing="lists" />
-        <SellerInfoCard :listing="lists" />
-        <PropertiesList :properties="lists?.properties" />
+        <InfoCard :detail="detail" />
+        <SellerInfoCard :detail="detail" />
+        <PropertiesList :properties="detail?.properties" />
       </div>
     </div>
 
-    <ListingDescription :html="lists?.text" />
+    <Description :html="detail?.text" />
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 export interface DetailStoreState {
-  lists: DetailResponse | null;
+  detail: DetailResponse | null;
 }
 
 export interface DetailResponse {

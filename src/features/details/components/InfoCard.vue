@@ -4,11 +4,11 @@ import { Language } from "@/languages/en";
 import type { DetailResponse } from "../types/detail";
 
 const props = defineProps<{
-  listing: DetailResponse | null;
+  detail: DetailResponse | null;
 }>();
 
 const formattedPrice = computed(() => {
-  return new Intl.NumberFormat("tr-TR").format(props.listing?.price) + " TL";
+  return new Intl.NumberFormat("tr-TR").format(props.detail?.price) + " TL";
 });
 </script>
 
@@ -27,7 +27,7 @@ const formattedPrice = computed(() => {
         <i class="pi pi-hashtag text-secondary" />
         {{ Language.LISTING_NO }}
       </span>
-      <span class="font-semibold">{{ listing?.id }}</span>
+      <span class="font-semibold">{{ detail?.id }}</span>
     </li>
     <li
       class="flex justify-between items-center border-b-gray-200 border-b p-2"
@@ -36,7 +36,7 @@ const formattedPrice = computed(() => {
         <i class="pi pi-calendar text-secondary" />
         {{ Language.DATE }}
       </span>
-      <span class="font-semibold">{{ listing?.dateFormatted }}</span>
+      <span class="font-semibold">{{ detail?.dateFormatted }}</span>
     </li>
     <li
       class="flex justify-between items-center border-b-gray-200 border-b p-2"
@@ -45,7 +45,7 @@ const formattedPrice = computed(() => {
         <i class="pi pi-car text-secondary" />
         {{ Language.MODEL }}
       </span>
-      <span class="font-semibold">{{ listing?.modelName }}</span>
+      <span class="font-semibold">{{ detail?.modelName }}</span>
     </li>
   </ul>
 </template>
