@@ -17,6 +17,7 @@ const handleToggleFilters = (event) => {
 };
 
 const handleApplyFilters = async () => {
+  filtersPopover.value.hide();
   await listingStore.fetchList(params.value);
 };
 </script>
