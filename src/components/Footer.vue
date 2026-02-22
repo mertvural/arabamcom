@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center text-sm text-gray-500 py-20">
+  <div class="text-center text-sm text-gray-500 py-10 text-xs">
     Copyright © 2026
     <a
       href="https://tr.linkedin.com/in/mert-vural-b8080563/"

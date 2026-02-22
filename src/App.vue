@@ -29,10 +29,12 @@ watch(error, (value) => {
 </script>
 
 <template>
-  <div class="max-w-7xl mx-auto text-primary text-sm font-[Open_Sans] px-2">
+  <div
+    class="max-w-7xl mx-auto text-primary text-sm font-[Open_Sans] px-2 flex-1 w-full"
+  >
     <RouterView />
-    <Footer />
   </div>
+  <Footer />
 
   <Loading v-if="loading" />
   <Toast position="top-center" />

@@ -4,6 +4,7 @@ import Select from "primevue/select";
 import { TakeOptions } from "../enums.ts/listing";
 import { useListingStore } from "../stores/listing";
 import { storeToRefs } from "pinia";
+import { Language } from "@/languages/en";
 
 const { params } = storeToRefs(useListingStore());
 
@@ -21,7 +22,8 @@ watch(
     :options="TakeOptions"
     option-label="name"
     option-value="value"
-    class="md:w-24"
+    class="md:w-32"
+    :placeholder="Language.NUMBER_OF_LISTINGS"
     size="small"
   />
 </template>

@@ -5,8 +5,13 @@ import Take from "./Take.vue";
 import Filters from "./Filters.vue";
 import { storeToRefs } from "pinia";
 import { Language } from "@/languages/en";
+import Button from "primevue/button";
 
-const { lists } = storeToRefs(useListingStore());
+const { lists, params } = storeToRefs(useListingStore());
+
+const handleLoadMore = () => {
+  params.value.take += 10;
+};
 </script>
 
 <template>
@@ -24,6 +29,15 @@ const { lists } = storeToRefs(useListingStore());
   >
     <Card v-for="item in lists" :key="item.id" :item="item" />
   </section>
+
+  <div class="flex justify-center mt-10" v-if="lists?.length > 0">
+    <Button
+      :label="Language.LOAD_MORE"
+      severity="danger"
+      size="small"
+      @click="handleLoadMore"
+    />
+  </div>
 
   <p
     v-if="lists?.length === 0"

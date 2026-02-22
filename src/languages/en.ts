@@ -19,4 +19,5 @@ export enum Language {
   SORT_BY_DATE = "Sort by date",
   ASCENDING = "Ascending",
   DESCENDING = "Descending",
+  LOAD_MORE = "Load more",
 }
