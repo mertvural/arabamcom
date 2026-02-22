@@ -21,7 +21,7 @@ watch(
     :options="TakeOptions"
     option-label="name"
     option-value="value"
-    class="w-full md:w-24"
+    class="md:w-24"
     size="small"
   />
 </template>
