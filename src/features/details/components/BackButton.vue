@@ -5,7 +5,7 @@ import { Language } from "@/languages/en";
 const router = useRouter();
 
 function handleGoBack() {
-  router.push({ name: "home" });
+  router.back();
 }
 </script>
 
