@@ -12,7 +12,7 @@
   display: inline-block;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
