@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Language } from "@/languages/en";
-import { formattedPrice} from "@/utils";
+import { formattedPrice} from "@/utils/helper";
 import type { DetailResponse } from "../types/detail";
 
 defineProps<{

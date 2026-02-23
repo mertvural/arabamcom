@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
-import { formattedPrice } from "@/utils";
+import { formattedPrice } from "@/utils/helper";
 import type { ListingResponse } from "../types/listing";
 
 const props = defineProps<{
