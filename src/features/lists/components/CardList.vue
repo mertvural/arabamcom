@@ -6,11 +6,12 @@ import Filters from "./Filters.vue";
 import { storeToRefs } from "pinia";
 import { Language } from "@/languages/en";
 import Button from "primevue/button";
+import { LOAD_MORE_INCREMENT } from "../enums.ts/listing";
 
 const { lists, params } = storeToRefs(useListingStore());
 
 const handleLoadMore = () => {
-  params.value.take += 10;
+  params.value.take += LOAD_MORE_INCREMENT;
 };
 </script>
 

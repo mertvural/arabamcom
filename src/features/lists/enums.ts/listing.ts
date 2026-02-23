@@ -33,3 +33,5 @@ export enum sortDirection {
   Desc = 0,
   Asc = 1,
 }
+
+export const LOAD_MORE_INCREMENT = 10;
