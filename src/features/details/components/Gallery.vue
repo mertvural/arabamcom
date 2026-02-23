@@ -42,7 +42,7 @@ defineProps<{
             this.onerror = null;
             this.src = '/images/notloaded.png';
           "
-        />
+        >
       </div>
     </template>
   </Galleria>

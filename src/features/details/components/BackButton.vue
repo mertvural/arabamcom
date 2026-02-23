@@ -15,6 +15,6 @@ function handleGoBack() {
     class="mb-4 text-secondary font-medium flex items-center gap-2 cursor-pointer"
     @click="handleGoBack"
   >
-    <i class="pi pi-arrow-left"></i> {{ Language.BACK }}
+    <i class="pi pi-arrow-left" />{{ Language.BACK }}
   </button>
 </template>

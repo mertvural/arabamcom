@@ -12,7 +12,7 @@ defineProps<{
   </h1>
 
   <p class="bg-gray-100 rounded-md font-bold text-secondary mb-2 p-2 shadow-sm">
-    <i class="pi pi-map-marker"></i> {{ detail?.location.cityName }} /
+    <i class="pi pi-map-marker" /> {{ detail?.location.cityName }} /
     {{ detail?.location.townName }}
   </p>
 </template>

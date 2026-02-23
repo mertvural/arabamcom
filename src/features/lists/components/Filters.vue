@@ -58,8 +58,8 @@ const handleApplyFilters = async () => {
           <Select
             v-model="params.sort"
             :options="SortOptions"
-            optionLabel="name"
-            optionValue="value"
+            option-label="name"
+            option-value="value"
             class="w-full"
             size="small"
           />
@@ -67,8 +67,8 @@ const handleApplyFilters = async () => {
           <Select
             v-model="params.sortDirection"
             :options="SortDirectionOptions"
-            optionLabel="name"
-            optionValue="value"
+            option-label="name"
+            option-value="value"
             class="w-full"
             size="small"
           />

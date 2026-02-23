@@ -30,7 +30,7 @@ const handleLoadMore = () => {
     <Card v-for="item in lists" :key="item.id" :item="item" />
   </section>
 
-  <div class="flex justify-center mt-10" v-if="lists?.length > 0">
+  <div v-if="lists?.length > 0" class="flex justify-center mt-10">
     <Button
       :label="Language.LOAD_MORE"
       severity="danger"

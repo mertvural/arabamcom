@@ -39,7 +39,7 @@ function handleClick() {
           this.onerror = null;
           this.src = 'images/notloaded.png';
         "
-      />
+      >
     </div>
 
     <div class="p-4 h-36 flex flex-col">
