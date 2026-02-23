@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import { useRouter } from "vue-router";
+import { formattedPrice } from "@/utils";
 import type { ListingResponse } from "../types/listing";
 
 const props = defineProps<{
@@ -9,11 +9,7 @@ const props = defineProps<{
 
 const router = useRouter();
 
-const formattedPrice = computed(() => {
-  return new Intl.NumberFormat("tr-TR").format(props.item.price) + " TL";
-});
-
-function handleClick() {
+const handleClick = () => {
   router.push({
     name: "listing-detail",
     params: { id: String(props.item.id) },
@@ -63,7 +59,7 @@ function handleClick() {
 
       <p class="text-right">
         <span class="text-secondary font-bold whitespace-nowrap">
-          {{ formattedPrice }}
+          {{ formattedPrice(props.item.price) }}
         </span>
       </p>
     </div>

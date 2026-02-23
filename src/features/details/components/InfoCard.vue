@@ -1,15 +1,12 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import { Language } from "@/languages/en";
+import { formattedPrice} from "@/utils";
 import type { DetailResponse } from "../types/detail";
 
-const props = defineProps<{
+defineProps<{
   detail: DetailResponse | null;
 }>();
 
-const formattedPrice = computed(() => {
-  return new Intl.NumberFormat("tr-TR").format(props.detail?.price) + " TL";
-});
 </script>
 
 <template>
@@ -18,7 +15,7 @@ const formattedPrice = computed(() => {
       class="flex justify-between items-center shadow-sm bg-gray-100 p-2 rounded-md font-bold"
     >
       <span class="text-lg">{{ Language.PRICE }}</span>
-      <span class="text-secondary text-xl">{{ formattedPrice }}</span>
+      <span class="text-secondary text-xl">{{ formattedPrice(detail?.price) }}</span>
     </li>
     <li
       class="flex justify-between items-center border-b-gray-200 border-b p-2"
