@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeMount } from "vue";
+import { onBeforeMount, onUnmounted } from "vue";
 import { useRoute } from "vue-router";
 import { useDetailStore } from "./stores/detail";
 import Detail from "./components/Detail.vue";
@@ -11,6 +11,10 @@ onBeforeMount(async () => {
   await detailStore.fetchDetail({
     id: Number(route.params.id),
   });
+});
+
+onUnmounted(() => {
+  detailStore.$reset();
 });
 </script>
 
