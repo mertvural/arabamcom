@@ -20,4 +20,6 @@ export enum Language {
   ASCENDING = "Ascending",
   DESCENDING = "Descending",
   LOAD_MORE = "Load more",
+  PAGE_NOT_FOUND = "The page you are looking for was not found.",
+  BACK_TO_HOME = "Back to Home",
 }
