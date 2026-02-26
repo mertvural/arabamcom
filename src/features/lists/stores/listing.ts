@@ -10,21 +10,15 @@ export const useListingStore = defineStore("listing", {
       sort: Sort.Price,
       sortDirection: sortDirection.Desc,
       take: Take.Ten,
-      minYear: null,
-      maxYear: null,
+      minYear: undefined,
+      maxYear: undefined,
     },
   }),
 
   actions: {
     async fetchList(params: SortParams) {
       try {
-        const response = await getListing({
-          sort: params?.sort,
-          sortDirection: params?.sortDirection,
-          take: params?.take,
-          minYear: params?.minYear,
-          maxYear: params?.maxYear,
-        });
+        const response = await getListing(params);
 
         if (response.data) {
           this.lists = response.data;

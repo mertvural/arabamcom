@@ -3,9 +3,7 @@
 import { computed } from "vue";
 import DOMPurify from "dompurify";
 
-const props = defineProps<{
-  html: string | undefined;
-}>();
+const props = defineProps<{ html: string | undefined }>();
 
 const sanitizedHtml = computed(() =>
   props.html ? DOMPurify.sanitize(props.html) : "",

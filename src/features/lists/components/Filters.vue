@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import Button from "primevue/button";
 import Popover from "primevue/popover";
 import InputText from "primevue/inputtext";
@@ -10,14 +10,29 @@ import { SortDirectionOptions, SortOptions } from "../enums.ts/listing";
 
 const listingStore = useListingStore();
 const { params } = storeToRefs(listingStore);
-const filtersPopover = ref(null);
+const filtersPopover = ref<InstanceType<typeof Popover> | null>(null);
 
-const handleToggleFilters = (event) => {
-  filtersPopover.value.toggle(event);
+const minYearDisplay = computed({
+  get: () => params.value.minYear != null ? String(params.value.minYear) : "",
+  set: (v) => {
+    const n = v === "" ? undefined : Number(v);
+    params.value.minYear = n !== undefined && Number.isNaN(n) ? undefined : n;
+  },
+});
+const maxYearDisplay = computed({
+  get: () => params.value.maxYear != null ? String(params.value.maxYear) : "",
+  set: (v) => {
+    const n = v === "" ? undefined : Number(v);
+    params.value.maxYear = n !== undefined && Number.isNaN(n) ? undefined : n;
+  },
+});
+
+const handleToggleFilters = (event: Event) => {
+  filtersPopover.value?.toggle(event);
 };
 
 const handleApplyFilters = async () => {
-  filtersPopover.value.hide();
+  filtersPopover.value?.hide();
   await listingStore.fetchList(params.value);
 };
 </script>
@@ -35,7 +50,7 @@ const handleApplyFilters = async () => {
       <div class="mb-2">
         <div class="flex gap-2 mb-2">
           <InputText
-            v-model="params.minYear"
+            v-model="minYearDisplay"
             type="text"
             placeholder="Min Year"
             size="small"
@@ -44,7 +59,7 @@ const handleApplyFilters = async () => {
             inputmode="numeric"
           />
           <InputText
-            v-model="params.maxYear"
+            v-model="maxYearDisplay"
             type="text"
             placeholder="Max Year"
             class="w-full"

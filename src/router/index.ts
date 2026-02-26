@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Lists from "@/features/lists/index.vue";
-import Details from "@/features/details/index.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -13,11 +12,16 @@ const router = createRouter({
     {
       path: "/listing/:id",
       name: "listing-detail",
-      component: Details,
+      component: () => import("@/features/details/index.vue"),
       props: true,
     },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "not-found",
+      component: () => import("@/views/NotFound.vue"),
+    },
   ],
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(_to, _from, savedPosition) {
     if (savedPosition) {
       return savedPosition;
     }

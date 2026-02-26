@@ -6,12 +6,12 @@ import Filters from "./Filters.vue";
 import { storeToRefs } from "pinia";
 import { Language } from "@/languages/en";
 import Button from "primevue/button";
-import { LOAD_MORE_INCREMENT } from "../enums.ts/listing";
+import { LOAD_MORE_INCREMENT, Take as TakeEnum } from "../enums.ts/listing";
 
 const { lists, params } = storeToRefs(useListingStore());
 
 const handleLoadMore = () => {
-  params.value.take += LOAD_MORE_INCREMENT;
+  params.value.take = (params.value.take ?? TakeEnum.Ten) + LOAD_MORE_INCREMENT;
 };
 </script>
 
@@ -31,7 +31,7 @@ const handleLoadMore = () => {
     <Card v-for="item in lists" :key="item.id" :item="item" />
   </section>
 
-  <div v-if="lists?.length > 0" class="flex justify-center mt-10">
+  <div v-if="(lists?.length ?? 0) > 0" class="flex justify-center mt-10">
     <Button
       :label="Language.LOAD_MORE"
       severity="danger"
@@ -41,7 +41,7 @@ const handleLoadMore = () => {
   </div>
 
   <p
-    v-if="lists?.length === 0"
+    v-if="(lists?.length ?? 0) === 0"
     class="text-center text-secondary font-medium bg-gray-100 w-full p-10 rounded-lg border border-gray-200 shadow-md"
   >
     {{ Language.NO_RESULTS_FOUND }}
